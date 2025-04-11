@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sentiment Analyzer </title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 400px;
+      text-align: center;
+    }
+    textarea {
+      width: 100%;
+      padding: 15px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      resize: vertical;
+    }
+    button {
+      background: #4caf50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+    .emoji {
+      font-size: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📝 Product Review Sentiment Analyzer</h2>
+    <form method="POST">
+      <textarea name="review" placeholder="Write your review here..." rows="5" required></textarea>
+      <br>
+      <button type="submit">Analyze</button>
+    </form>
+    
+    {% if prediction %}
+    <div class="result">
+      <p>Sentiment: <strong>{{ prediction }}</strong></p>
+      <div class="emoji">{{ emoji }}</div>
+      <p>Emotion: {{ emotion }}</p>
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
